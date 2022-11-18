@@ -19,11 +19,10 @@ app.get("/", (req, res) => {
 });
 
 let msgs = [];
-//leer el archivo y cargar los msgs
+
 
 io.on("connection", (socket) => {
-  //console.log("se creo un socket nuevo " + socket.id);
-  // socket.emit("msg", "hola front!");
+ 
   msgs.push({
     socketid: socket.id,
     email: "",
@@ -37,13 +36,11 @@ io.on("connection", (socket) => {
       socketid: socket.id,
       email: data.email,
       mensaje: data.mensaje,
-      //gregar el campo fecha
+     
     });
-    //persistir en un archivo
+   
 
     io.sockets.emit("msg-list", msgs);
   });
-  /* socket.on("disconnect", (reason) => {
-    console.log(reason + " " + socket.id);
-  }); */
+ 
 });
