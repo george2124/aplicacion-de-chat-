@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
   msgs.push({
     socketid: socket.id,
     email: "",
-    mensaje: " se conecto fulanito " + socket.id,
+    mensaje: " se conecto un nuevo usuario " + socket.id,
   });
   io.sockets.emit("msg-list", msgs);
 
